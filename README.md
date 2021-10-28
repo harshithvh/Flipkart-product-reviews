@@ -39,7 +39,7 @@ After tokenization, and stop words removal, our "content" are still in string fo
 
 # Topic Modelling - LDA
 
-<img align="left" alt="Visual Studio Code" width="820px" src="https://www.slideteam.net/media/catalog/product/cache/960x720/p/r/product_review_summary_Slide01.jpg" />
+<img align="left" alt="Visual Studio Code" width="820px" src="https://edugrad-out-bucket-production.s3.ap-south-1.amazonaws.com/images/Sentiment_Analysis_and_Topic_Modeling_Using_NLP.jpg" />
 
 ---
 Topic modeling in python involves counting words and grouping similar word patterns to infer topics within unstructured data. Let’s take the example of Flipkart where you might want to know what customers are saying about a particular product from x seller. Instead of spending hours to find out the best-reviewed product through heaps of feedback, you can analyze them with a topic modeling algorithm.
