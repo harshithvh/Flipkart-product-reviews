@@ -48,3 +48,18 @@ By detecting patterns such as word frequency and distance between words, a topic
 
 There are various topic in modelling algorithms, we will be using the Latent Dirichlet Allocation algorithm(LDA).
 
+### Extra
+
+---
+
+**>** Spacy is a library in NLP.
+<br />
+**>** Sklearn is an open source ML library.
+<br />
+**>** Genism is a library for topic modelling and NLP.
+<br />
+**>** Pandas is a library which contains various statistical tools for statistical operations.
+<br />
+**>** Reduce is a library to iterate through the whole data of reviews.
+<br />
+**>** matplotlib and seaborn are libraries to represent data in graphical form
