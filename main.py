@@ -15,9 +15,12 @@ nlp.vocab['good'].is_stop = True
 #pandas
 reviews = pd.read_csv('Flipkart_ratings.csv')
 print(reviews.shape)
+# On running (4652, 13)
+# 4652 are no of reviews and 13 are no of columns
 
 #pandas
 reviews['star_rating'] = reviews['star_rating'].apply(lambda x:1 if x > 4 else 0)
+# All the reviews with ratings from 0 to 4 are given value 0 because we are interested only in reviews from 0 to 4
 
 #pandas
 negative_sentiments = reviews[reviews['star_rating'] == 0]
@@ -30,6 +33,7 @@ negative_sentiments['Final review'] = negative_sentiments['Final review'].str.re
 
 #pandas
 negative_sentiments = negative_sentiments.dropna()
+# Dropna helps us remove all the null values
 
 #tokenization, stop words removal
 negative_sentiments['Final Text'] = ''
@@ -40,7 +44,8 @@ for i in range(negative_sentiments.shape[0]):
         if j.is_stop!=True and j.is_punct!=True:
             temp.append(j.lemma_)
     negative_sentiments['Final Text'].iloc[i] = temp
-
+# iloc - assigning index values    
+ 
 #vectoriazation and topic modeling 
 def topic_modelling(text):
     dictionary = corpora.Dictionary(text)
@@ -51,10 +56,12 @@ def topic_modelling(text):
     temp = re.findall('[a-z]*',lda_model.print_topics()[0][1])
     tags = [x for x in temp if x]
     return tags
+# doc2bow - converting the tokens into a bag of words with indexing each one of them
 
 #pandas
 negative_sentiments['Final Text'] = negative_sentiments['Final Text'].apply(lambda x:' '.join(x))
 print(negative_sentiments.head(2))
+# Printing only the first two reviews
 
 #pandas
 negative_sentiments['Review Tags'] = negative_sentiments['Final Text'].apply(lambda x: topic_modelling([x.split(' ')]))
@@ -76,6 +83,7 @@ df = pd.Series(dic)
 df = df.drop(['t','s'])
 df = df.sort_values(ascending = False)
 df.head(20)
+# Drop t and s to remove s and t words like does and doesn't
 
 #data visualization, matplotlib & seaborn
 import matplotlib.pyplot as plt
